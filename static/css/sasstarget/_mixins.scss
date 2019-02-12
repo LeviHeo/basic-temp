@@ -1,0 +1,41 @@
+$color1:#3fa9f5;
+$maw:100%;
+
+@mixin test {
+	border:1px solid red;
+}
+
+@mixin ani($speed:0.3s) {
+	-moz-transition: all $speed ease;
+	-o-transition: all $speed ease;
+	-webkit-transition: all $speed ease;
+	transition: all $speed ease;
+}
+
+@mixin clfix {
+	&:after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+}
+@mixin center($width:100%, $mwidth:$width) {
+	width:$width;
+	max-width:$mwidth;
+	margin: 0 auto;
+}
+
+$img:'../img/';
+@mixin bgimg($filename,$position:0 0,$repeat: no-repeat) {
+	background: transparent url(#{$imagedir}#{$filename}.jpg) $repeat $position;
+}
+
+@mixin box-sizing ($p: border-box){
+	-webkit-box-sizing: $p; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: $p;    /* Firefox, other Gecko */
+	box-sizing: $p;         /* Opera/IE 8+ */
+}
+
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
